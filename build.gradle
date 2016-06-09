@@ -12,18 +12,24 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 
+
+task runPatientStreams(type: JavaExec){
+	classpath = sourceSets.main.runtimeClasspath
+	main = "com.cognitive.streams.KafkaPatientStreamsDriver"
+}
+
 task runPurchaseProcessor(type: JavaExec){
-   classpath sourceSets.main.runtimeClasspath
-   main = "bbejeck.processor.purchases.PurchaseProcessorDriver"
+   classpath = sourceSets.main.runtimeClasspath
+   main = 'bbejeck.processor.purchases.PurchaseProcessorDriver'
 }
 
 task runPurchaseStreams(type: JavaExec){
-    classpath sourceSets.main.runtimeClasspath
+    classpath = sourceSets.main.runtimeClasspath
     main = "bbejeck.streams.purchases.PurchaseKafkaStreamsDriver"
 }
 
 task runStockProcessor(type: JavaExec){
-   classpath sourceSets.main.runtimeClasspath
+   classpath = sourceSets.main.runtimeClasspath
    main = "bbejeck.processor.stocks.StockSummaryStatefulProcessorDriver"
 }
 
@@ -37,15 +43,14 @@ task runTwitterKstreamNLP(type: JavaExec) {
     main = "bbejeck.streams.twitter.TwitterKStreamNLPDriver"
 }
 
-
-
-
 jar {
   archiveName='bbejeck-kafka-streams-1.0-SNAPSHOT.jar'
 }
 
 repositories {
-     mavenCentral()
+	 mavenCentral()
+	 mavenLocal()
+	 
 }
 
 dependencies {
@@ -54,11 +59,16 @@ dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.7.1'
     compile group: 'com.google.guava', name: 'guava', version:'19.0'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.1'
-    compile group: 'com.101tec', name:'zkclient', version:'0.7'
+    compile group: 'com.101tec', name:'zkclient', version:'0.8'
     compile group: 'com.yammer.metrics', name:'metrics-core', version:'2.2.0'
     compile group: 'com.twitter', name:'hbc-core', version:'2.2.0'
     compile group: 'de.julielab', name: 'aliasi-lingpipe', version:'4.1.0'
     compile group: 'org.apache.commons', name:'commons-lang3', version:'3.4'
+	compile group: 'org.drools', name: 'drools-bom', version: '6.4.0.Final'
+	compile group: 'org.kie', name: 'kie-api', version: '6.4.0.Final'
+	compile group: 'org.drools', name: 'drools-core', version: '6.4.0.Final'
+	compile group: 'org.drools', name: 'drools-compiler', version: '6.4.0.Final'
+	compile group: 'org.drools', name: 'drools-decisiontables', version: '6.4.0.Final'
     compile files('libs/kafka-streams-0.10.1.0-SNAPSHOT.jar','libs/kafka-clients-0.10.1.0-SNAPSHOT.jar','libs/rocksdbjni-4.1.0.jar')
-    testCompile group: 'junit', name: 'junit', version:'4.11'
+	testCompile group: 'junit', name: 'junit', version:'4.11'
 }

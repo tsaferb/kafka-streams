@@ -1,0 +1,30 @@
+{
+  "eventFrequency": 400,
+  "varyEventFrequency": true,
+  "repeatWorkflow": true,
+  "timeBetweenRepeat": 1500,
+  "varyRepeatFrequency": true,
+  "steps": [
+    {
+      "config": [
+        {
+          "location":"random('TX', 'CA', 'OK', 'NY', 'FL', 'GA', 'IL', 'NE', 'MN', 'SC', 'NM', 'VA', 'LA', 'KS', 'MS')",
+          "patientId":"uuid()",
+          "evaluationDate":"nowTimestamp()",
+          "temperature":"double(90,95)",
+          "heartRate":"integer(90,111)",
+          "hypotension":"integer(1,3)",
+          "infectionFlag":"random('N','Y')",
+          "organFailCount":"integer(3,7)",
+          "wbc":"integer(3000,4000)",
+          "respiratoryRate":"integer(31,51)",
+          "sbp":"integer(1,101)",
+          "evalHRFlag":0,
+          "evalRespFlag":0,
+          "evalWbcFlag":0
+        }
+      ],
+      "duration": 0
+    }
+  ]
+}
