@@ -1,8 +1,8 @@
-#kafka-streams-drools
+###  kafka-streams-drools
 A fork of kafka-streams project to integrate Drools rule engine for Kafka Stream processing
 
- *   Kafka Streams - KStreams API with Drools Rule Processor
- 
+ *   KStreams API with Drools Rule Processor
+
  The rest is the same.
  This is the repository for the examples of using Kafka streams covered in the blog posts:
  *   [Kafka Streams - The Processor API](http://codingjunkie.net/kafka-processor-part1/)
@@ -58,7 +58,7 @@ Start zookeeper and kafka
       kafka-install-dir/bin/zookeeper-server-start.sh ../conf/zookeeper.properties
       kafka-install-dir/bin/kafka-server-start ../conf/server.properties
 ```
-### Running the Patient Processor API KStreams API for Drools Rule Processor ###
+### Running the Patient KStreams API for Drools Rule Processor ###
      cd <dir>/json-data-generator-1.2.0/
      java -jar json-data-generator-1.2.0 patients-config.json
      cd kafka-streams
