@@ -15,7 +15,7 @@ public class Patient implements java.io.Serializable {
 	private String infectionFlag;
 	private int organFailCount;
 	
-	//derived values
+	//derived values for rules
 	private int sirsCounter;
 	private int sirsFlag;
 	private int sepsisFlag;
