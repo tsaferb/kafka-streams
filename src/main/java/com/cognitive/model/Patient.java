@@ -23,7 +23,7 @@ public class Patient implements java.io.Serializable {
 	private int septicShockFlag;
 	private int organDysfunctionSyndrome;
 	
-	//internal evaluation flags
+	//internal evaluation flags for the rule
 	private int evalHRFlag;
 	private int evalRespFlag;
 	private int evalWbcFlag;
